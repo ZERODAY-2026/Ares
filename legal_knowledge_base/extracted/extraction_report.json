@@ -1,0 +1,661 @@
+{
+  "generated_at_utc": "2026-10-18T09:33:40.037251+00:00",
+  "input_directory": "/Users/sakshamgupta/Desktop/Academics/hacktoberfest/datasets",
+  "output_file": "/Users/sakshamgupta/Desktop/Academics/hacktoberfest/legal_knowledge_base/chunks.jsonl",
+  "total_sources": 3,
+  "total_chunks": 537,
+  "retrieval_note": "For substantive legal retrieval, exclude chunks whose content_type is 'table_of_contents'. Review unclassified and short-section warnings manually.",
+  "sources": [
+    {
+      "file": "A187209.pdf",
+      "title": "Indian Contract Act, 1872",
+      "sha256": "d756d45a58c4cd8440e70a0189ea1fda9d7c5dfcdd6ef31a5f2ecd9cb209c59d",
+      "page_count": 53,
+      "toc_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "chunk_count": 249,
+      "source_url": null,
+      "jurisdiction": "India",
+      "verification_status": "unverified"
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "title": "Registration Act, 1908",
+      "sha256": "abf5a44be7c3f67440c7edd0ad67760c8cd72dd0927ffcfd176468cf7b10b224",
+      "page_count": 31,
+      "toc_pages": [],
+      "chunk_count": 117,
+      "source_url": null,
+      "jurisdiction": "India",
+      "verification_status": "unverified"
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "title": "Transfer of Property Act, 1882",
+      "sha256": "7e6976eb373b32b477a99c5860c8a4e17326581e5c8d8ab3d170797f3410098c",
+      "page_count": 45,
+      "toc_pages": [],
+      "chunk_count": 171,
+      "source_url": null,
+      "jurisdiction": "India",
+      "verification_status": "unverified"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 10,
+      "page_end": 10,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "13",
+      "page_start": 13,
+      "page_end": 13,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 14,
+      "page_end": 14,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 14,
+      "page_end": 14,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 15,
+      "page_end": 15,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 16,
+      "page_end": 16,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "3",
+      "page_start": 16,
+      "page_end": 16,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 18,
+      "page_end": 18,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 18,
+      "page_end": 18,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "3",
+      "page_start": 18,
+      "page_end": 18,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 23,
+      "page_end": 23,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 25,
+      "page_end": 25,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 25,
+      "page_end": 26,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 27,
+      "page_end": 27,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 27,
+      "page_end": 27,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "3",
+      "page_start": 27,
+      "page_end": 27,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "4",
+      "page_start": 27,
+      "page_end": 28,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 28,
+      "page_end": 28,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 31,
+      "page_end": 31,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 31,
+      "page_end": 31,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "82",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "83",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "84",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "85",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "86",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "87",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "89",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "90",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 32,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "91",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "92",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "96",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "98",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "101",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "102",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "103",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "104",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "110",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "111",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "116",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "117",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "119",
+      "page_start": 33,
+      "page_end": 34,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "120",
+      "page_start": 34,
+      "page_end": 34,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "122",
+      "page_start": 34,
+      "page_end": 34,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 40,
+      "page_end": 41,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "2",
+      "page_start": 42,
+      "page_end": 42,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "185",
+      "page_start": 43,
+      "page_end": 43,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "186",
+      "page_start": 43,
+      "page_end": 43,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "1",
+      "page_start": 49,
+      "page_end": 49,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "239",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "240",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "242",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "245",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "247",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "248",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "249",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "251",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "252",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "254",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "255",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "257",
+      "page_start": 52,
+      "page_end": 52,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "259",
+      "page_start": 52,
+      "page_end": 53,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "262",
+      "page_start": 53,
+      "page_end": 53,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "263",
+      "page_start": 53,
+      "page_end": 53,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "A187209.pdf",
+      "section_candidate": "264",
+      "page_start": 53,
+      "page_end": 53,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "section_candidate": "4",
+      "page_start": 4,
+      "page_end": 4,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "section_candidate": "92",
+      "page_start": 29,
+      "page_end": 29,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "section_candidate": "1",
+      "page_start": 30,
+      "page_end": 30,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "section_candidate": "5",
+      "page_start": 30,
+      "page_end": 30,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Registration_Act_1908.PDF",
+      "section_candidate": "8",
+      "page_start": 31,
+      "page_end": 31,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "74",
+      "page_start": 29,
+      "page_end": 29,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "75",
+      "page_start": 29,
+      "page_end": 29,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "80",
+      "page_start": 31,
+      "page_end": 31,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "85",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "86",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "87",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "88",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "89",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "90",
+      "page_start": 32,
+      "page_end": 32,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "97",
+      "page_start": 33,
+      "page_end": 33,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "99",
+      "page_start": 34,
+      "page_end": 34,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "130A",
+      "page_start": 43,
+      "page_end": 43,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "135A",
+      "page_start": 44,
+      "page_end": 44,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "27",
+      "page_start": 45,
+      "page_end": 45,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "13",
+      "page_start": 45,
+      "page_end": 45,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "section_candidate": "27",
+      "page_start": 45,
+      "page_end": 45,
+      "issue": "Very short section candidate; could be a genuine short provision, a contents/footnote artifact, or a detection error. Inspect manually."
+    },
+    {
+      "file": "The_Transfer_Of_Property_Act_1882.PDF",
+      "issue": "Source text identifies itself as a 2003 version and says the original publication could not be verified. Do not treat it as verified current law."
+    }
+  ]
+}
