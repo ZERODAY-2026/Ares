@@ -174,7 +174,6 @@ The document upload, screen-region capture and browser text-selection interfaces
 │   ├── A187209.pdf
 │   ├── The_Registration_Act_1908.PDF
 │   ├── The_Transfer_Of_Property_Act_1882.PDF
-│   └── Hackathon Project Plan.txt
 ├── legal_knowledge_base/
 │   └── chunks.jsonl
 ├── prepare_rag.py
