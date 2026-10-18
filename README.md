@@ -1,227 +1,381 @@
 # PS2 — Agentic AI: Private Legal Document Triage Agent
 
-## LegalLens — Private, evidence-grounded legal document assistant
+# LegalLens
 
-LegalLens is a local-first Legal AI application designed to help people understand legal documents in plain language. The user selects a document category, uploads a document, identifies their role, and receives a complete, role-aware analysis rather than an answer based only on an isolated question.
+**A private, local-first legal document triage and explanation assistant for Indian legal documents.**
 
-The current prototype focuses on **Indian residential rental agreements**. The application is designed with a broader document-assistant architecture so that the same analysis engine can support additional legal-document categories as the knowledge sources and evaluation cases are added.
+LegalLens helps a user perform a cautious first review of an agreement without uploading the document to a cloud AI service. It extracts the document locally, retrieves relevant local legal context, asks a locally running Gemma model for a structured explanation, validates quotations against the original document, and presents the result through a React interface.
 
-> LegalLens is a document-triage and explanation tool, not a substitute for qualified legal advice. It does not determine whether a clause is legally enforceable.
+> **Important:** LegalLens provides document triage and plain-language explanations. It does not provide legal advice, determine enforceability, establish liability, or replace a qualified lawyer.
 
-## What LegalLens does
+## Why LegalLens?
 
-LegalLens combines three types of evidence:
+Legal documents are often difficult to review because important information is spread across multiple clauses. A termination question may depend on notice, default, renewal, lock-in and deposit clauses at the same time. LegalLens is designed to connect these clauses while keeping the document evidence separate from interpretation and national legal context.
 
-1. **The uploaded agreement** — the exact clauses, amounts, dates and conditions in the user's document.
-2. **Official legal context** — a locally stored and curated collection of Indian legal sources, with source and jurisdiction metadata.
-3. **The user's situation** — whether the user is a tenant or landlord, the relevant state or city, and whether the document is being reviewed before signing or during a dispute.
+The project is built around four principles:
 
-The local Gemma model interprets the retrieved evidence, while application code validates quotations and keeps facts separate from interpretations.
+- **Private by design:** documents and inference remain on the device.
+- **Evidence first:** model quotations and pages are checked against extracted source text.
+- **Fact versus interpretation:** the application distinguishes what the agreement explicitly says from possible implications.
+- **Cautious assistance:** uncertainty and missing information are shown instead of being hidden.
 
-## Main workflow
+## Current capabilities
+
+- Upload PDF, DOCX or TXT documents.
+- Paste a clause directly into the interface.
+- Select a document category and role.
+- Analyse rental agreements from a tenant or landlord perspective.
+- Analyse employment contracts from an employee or employer perspective.
+- Analyse service agreements from a client or service-provider perspective.
+- Ask questions through a document-grounded chatbot.
+- Retrieve national Indian legal context from a local knowledge base.
+- Verify quotations and page references locally.
+- Show uncertainty when the document does not provide enough information.
+- Run Gemma through a persistent local `llama-server`.
+- Run the complete application without an internet connection after setup.
+- Switch between dark and light interface modes.
+
+The rental-agreement workflow is currently the most developed path. Other document categories can be processed, but their specialized legal retrieval sources and evaluation coverage are still being expanded.
+
+## Application workflow
 
 ```text
-Select document category
+Choose document type
         ↓
-Upload rental agreement
+Choose role
         ↓
-Select role: tenant or landlord
+Choose review context
         ↓
-Provide jurisdiction and review context
+Upload PDF, DOCX or TXT / paste a clause
         ↓
-Extract the complete document locally with page references
+Extract text locally with page or evidence sections
         ↓
-Identify important clauses and related clauses
+Select relevant document excerpts
         ↓
-Retrieve relevant official Indian legal sources locally
+Retrieve related national legal chunks locally
         ↓
-Run Gemma locally with contract and legal evidence
+Run Gemma locally through llama-server
         ↓
-Validate quotations and citations
+Normalize structured output
         ↓
-Generate a role-aware report
+Validate quotations and page references
         ↓
-Ask follow-up questions through the document-aware chatbot
+Show a role-aware report
+        ↓
+Ask follow-up questions in the local chatbot
 ```
-
-The system does not analyze only the sentence related to a user's question. It reviews the agreement for connected clauses, exceptions and conditions. For example, a termination question may require checking termination, notice, breach, renewal and deposit clauses together.
-
-## Rental-agreement analysis
-
-The prototype analyzes the agreement from the user's selected perspective.
-
-### Tenant perspective
-
-- Rent and payment obligations
-- Security deposit and deductions
-- Notice and termination rights
-- Lock-in period and early-exit consequences
-- Maintenance and repair responsibilities
-- Renewal and rent-increase terms
-- Restrictions and penalties
-- Unclear or missing protections
-
-### Landlord perspective
-
-- Tenant payment and maintenance obligations
-- Landlord termination rights
-- Notice requirements
-- Breach and default conditions
-- Property-use restrictions
-- Subletting and occupancy conditions
-- Damage, deduction and recovery provisions
-- Unclear or missing protections
-
-Each important clause is classified as relevant to the tenant, landlord, both parties, or unclear. The system explains the possible practical consequence without presenting a legal conclusion as certain.
-
-## Report output
-
-Each finding is designed to contain:
-
-- Clause category
-- Plain-language explanation
-- What the agreement explicitly says
-- Potential impact for the selected role
-- Potential impact for the other party
-- Possible practical consequence
-- Risk or ambiguity explanation
-- Exact quotation from the agreement
-- Page number where available
-- Relevant official legal source
-- Jurisdiction and source metadata
-- Missing information
-- Suggested questions to clarify
-- Recommendation for professional legal review when appropriate
-
-The report distinguishes between:
-
-- **Document fact** — directly supported by the agreement
-- **Legal-source fact** — directly supported by a retrieved official source
-- **Interpretation** — a cautious explanation of how the evidence may relate
-- **Uncertainty** — information required before a reliable conclusion can be reached
-
-## Conversational assistant
-
-After the initial report, users can ask natural-language questions such as:
-
-- “Can the landlord terminate without notice?”
-- “What are my obligations as a tenant?”
-- “When should the security deposit be returned?”
-- “What happens if I leave during the lock-in period?”
-- “Which clauses should I clarify before signing?”
-- “Why was this clause marked as a concern?”
-
-For each question, LegalLens retrieves relevant contract clauses and legal sources locally. Gemma receives those passages as evidence and produces a cautious response. The application then checks that the returned quotations exist in the original source before displaying them as verified evidence.
-
-## Local legal knowledge system
-
-LegalLens uses retrieval-augmented generation (RAG). RAG supplies relevant source text to Gemma at inference time; it does not retrain Gemma or assume that the model knows every current Indian law.
-
-The legal knowledge base is intended to contain curated, traceable sources such as:
-
-- India Code legislation
-- Official Gazette notifications and amendments
-- Relevant state tenancy or rent-control material
-- Carefully selected official judgments where interpretation is necessary
-
-Every legal source should include its title, jurisdiction, section, official URL, version or effective date where available, download date and verification status. The presence of an official source does not by itself prove that it applies to every agreement. State, city, tenancy type, dates and facts may change the analysis.
-
-The repository currently includes a local preparation pipeline for extracting and chunking legal PDFs into a searchable JSON Lines knowledge base.
-
-## Privacy and safety
-
-LegalLens is designed for local processing:
-
-- Uploaded agreements remain on the user's device.
-- Gemma runs through a local runtime.
-- Legal-source retrieval runs against a local knowledge base.
-- No cloud LLM API is required.
-- Document text should not be written to application logs.
-- Citations are validated locally.
-- The final workflow is intended to be demonstrated with network access disabled after setup.
-
-The project must distinguish between a privacy-preserving design and a privacy claim that has actually been tested. Offline execution and network-behaviour checks are part of the verification process.
 
 ## Architecture
 
 ```text
-Document selector and upload
-            ↓
-Local document processor
-(PDF/TXT extraction, OCR or selected text)
-            ↓
-Page-aware clause and chunk store
-            ↓
-Local retrieval
-(contract clauses + legal knowledge base)
-            ↓
-Local Gemma inference via llama.cpp
-            ↓
-Structured response parser
-            ↓
-Evidence, citation and safety validator
-            ↓
-Role-aware report and conversational assistant
+React + Vite frontend
+          ↓ localhost
+FastAPI local API
+          ↓
+PDF / DOCX / TXT extraction
+          ↓
+Page-aware document representation
+          ↓
+Keyword retrieval for contract excerpts
+          ↓
+Local legal retrieval from chunks.jsonl
+          ↓
+Persistent llama-server + Gemma GGUF
+          ↓
+JSON extraction and safe normalization
+          ↓
+Quote and page validation
+          ↓
+React report and chatbot
 ```
 
-The document upload, screen-region capture and browser text-selection interfaces are designed to feed the same analysis engine. The rental-agreement upload workflow is the primary prototype path and provides the complete-document context required for reliable clause analysis.
+### Frontend
 
-## Current repository contents
+The React/Vite frontend provides:
+
+- Document type and role selection
+- PDF, DOCX and TXT upload
+- Pasted-clause input
+- Analysis progress indicator
+- Evidence-backed findings
+- Local chatbot interface
+- Privacy and capability explanations
+- Dark/light mode
+
+### Backend
+
+The FastAPI backend provides:
+
+- `GET /api/health`
+- `POST /api/documents/extract`
+- `POST /api/documents/analyze`
+- `POST /api/chat`
+
+The backend performs extraction, retrieval, local inference, output normalization and evidence validation. The Gemma call runs in a worker thread so the local API remains responsive during slow CPU inference.
+
+### Local model runtime
+
+LegalLens uses a local Gemma 3n E2B Instruct GGUF model through `llama.cpp`:
 
 ```text
-.
-├── datasets/
-│   ├── A187209.pdf
-│   ├── The_Registration_Act_1908.PDF
-│   ├── The_Transfer_Of_Property_Act_1882.PDF
-├── legal_knowledge_base/
-│   └── chunks.jsonl
-├── prepare_rag.py
-└── README.md
+Gemma GGUF → llama-server → FastAPI → React
 ```
 
-`prepare_rag.py` extracts local legal PDFs, identifies likely sections, preserves page metadata and writes searchable chunks. Extracted legal text is not automatically treated as current or verified law; source provenance must be checked independently.
+The persistent server avoids loading the approximately 4.5 GB model for every request. On an Intel i5 MacBook, Q8 inference is still CPU-intensive and may take several minutes for a full analysis.
 
-## Running the knowledge-base preparation script
+## Document extraction
 
-Create and activate a Python environment, then install the required packages:
+### PDF
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pymupdf
+PyMuPDF extracts text page by page and preserves page numbers for evidence validation.
+
+### TXT
+
+Text files are split at form-feed page markers when available. Otherwise the text is represented as a local document section.
+
+### DOCX
+
+`python-docx` extracts paragraphs locally. Explicit Word page breaks are preserved where available. DOCX files without reliable page boundaries are divided into bounded evidence sections so that the model and report can still use stable references.
+
+The system does not send the original file to Gemma. Gemma receives selected extracted text with page or section labels.
+
+## Retrieval
+
+The current lightweight retrieval system is fully offline.
+
+### Contract retrieval
+
+For initial analysis, pages or document sections are ranked using rental/legal keywords such as:
+
+```text
+rent, deposit, notice, termination, renewal, lock-in,
+maintenance, repair, penalty, default, payment, obligation,
+right, dispute
 ```
 
-Prepare the local legal knowledge base:
+For chatbot questions, the question tokens are compared with document-section tokens. The highest-overlap sections are sent to Gemma within the local context limit.
 
-```bash
-python prepare_rag.py
-```
+This is intentionally transparent and lightweight. A future retrieval upgrade can use BM25 or a small local embedding model.
 
-The generated chunks are written to:
+### Legal retrieval
+
+The local legal knowledge base is stored at:
 
 ```text
 legal_knowledge_base/chunks.jsonl
 ```
 
-The exact Gemma model and local runtime must be installed separately. The target deployment is a quantized Gemma model served through `llama.cpp`, chosen to fit CPU-only inference on a constrained Intel MacBook.
+The retriever ranks chunks using lexical overlap and preserves source metadata. Contract evidence and legal context are sent to Gemma in separate prompt sections so retrieved legal text is not presented as if it appeared in the uploaded agreement.
 
-## Project principles
+The current national sources include local extracts from:
 
-- Read the complete agreement, not only the user's question.
-- Ask for the user's role before evaluating practical impact.
-- Ask for jurisdiction when legal applicability may vary.
-- Separate contract wording from legal context and interpretation.
-- Never invent clauses, quotations, page numbers or legal provisions.
-- Treat risk as a triage signal, not a legal verdict.
-- State when evidence is missing or contradictory.
-- Recommend qualified legal review when the facts or law require it.
-- Keep private documents and inference on the local device.
+- Indian Contract Act, 1872
+- Registration Act, 1908
+- Transfer of Property Act, 1882
+
+Source verification and official provenance are still part of the project roadmap.
+
+## Evidence validation
+
+Gemma-generated evidence is not trusted automatically. For each finding, the validator checks:
+
+1. Whether a quotation was returned.
+2. Whether the cited page exists.
+3. Whether the quotation appears on that page.
+
+Findings receive statuses such as:
+
+```text
+verified
+quote_not_found
+invalid_page
+missing_quote
+```
+
+If Gemma returns malformed or truncated JSON, LegalLens attempts partial recovery. If recovery is not possible, the raw text is shown as unverified output rather than being presented as a verified finding.
+
+## Chatbot
+
+The chatbot uses the same document-grounded pipeline:
+
+```text
+User question
+      ↓
+Relevant agreement sections selected
+      ↓
+Local national legal chunks retrieved
+      ↓
+Gemma receives bounded evidence
+      ↓
+Answer, quote and page extracted
+      ↓
+Quote validated against the document
+      ↓
+Answer displayed with uncertainty
+```
+
+Example questions:
+
+- `When can the landlord terminate this agreement?`
+- `What does the deposit clause mean?`
+- `When is salary payable under this contract?`
+- `What are the service provider's deliverables?`
+- `Which clause supports this answer?`
+
+The chatbot rejects unusable questions before calling Gemma. It also abstains when the supplied document does not provide enough evidence.
+
+## Privacy and offline operation
+
+After the one-time setup, the application runs through local addresses only:
+
+```text
+Frontend: 127.0.0.1:5173
+Backend:  127.0.0.1:8000
+Gemma:    127.0.0.1:8080
+```
+
+No cloud LLM API, remote document upload or online legal lookup is used during normal operation. The document, local legal chunks, extraction and inference remain on the device.
+
+The one-time setup requires the Python packages, Node packages, model and legal data to already be installed. Network behaviour should still be verified independently before making absolute privacy claims.
+
+## Installation
+
+### Python environment
+
+```bash
+cd /Users/sakshamgupta/Desktop/Academics/hacktoberfest
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Frontend dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### Local model
+
+Install or build `llama.cpp` and place the Gemma GGUF model at the path configured in `run_offline.sh`, or override it with:
+
+```bash
+export LEGALLENS_MODEL_PATH=/path/to/gemma-model.gguf
+export LEGALLENS_LLAMA_SERVER=/path/to/llama-server
+```
+
+## Run everything with one command
+
+The repository includes a launcher that starts Gemma, FastAPI and Vite together. It also clears stale listeners on the three LegalLens ports before starting.
+
+```bash
+cd /Users/sakshamgupta/Desktop/Academics/hacktoberfest
+./run_offline.sh
+```
+
+Open:
+
+```text
+http://127.0.0.1:5173
+```
+
+The launcher writes local logs to:
+
+```text
+/tmp/legallens-llama.log
+/tmp/legallens-api.log
+/tmp/legallens-frontend.log
+/tmp/legallens-offline.log
+```
+
+To run it detached from a terminal:
+
+```bash
+nohup ./run_offline.sh </dev/null >/tmp/legallens-offline.log 2>&1 &
+```
+
+To stop the local services:
+
+```bash
+for port in 8000 8080 5173; do
+  pids=$(lsof -nP -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)
+  [ -z "$pids" ] || kill $pids
+done
+```
+
+## Prepare the legal knowledge base
+
+The source PDFs are in `datasets/`. To regenerate local legal chunks:
+
+```bash
+source .venv/bin/activate
+python prepare_rag.py
+```
+
+The output is written to:
+
+```text
+legal_knowledge_base/chunks.jsonl
+```
+
+Legal chunks should be independently checked for official provenance, current validity and jurisdiction before being treated as verified legal sources.
+
+## Project structure
+
+```text
+.
+├── backend/
+│   └── api.py                          FastAPI routes
+├── datasets/                           Local legal-source PDFs
+├── docs/articles-research/             README image assets
+├── frontend/
+│   └── src/
+│       ├── App.jsx                     React application
+│       └── index.css                   Interface styles
+├── legal_knowledge_base/
+│   └── chunks.jsonl                    Local legal retrieval chunks
+├── document_processor.py               PDF/DOCX/TXT extraction
+├── legal_retriever.py                  Offline legal retrieval
+├── model_adapter.py                    Gemma and llama-server adapter
+├── normalizer.py                       Safe model-output normalization
+├── validator.py                        Evidence and quotation validation
+├── prepare_rag.py                      Legal knowledge-base preparation
+├── requirements.txt                    Python dependencies
+├── run_offline.sh                      One-command local launcher
+└── README.md                           Project documentation
+```
+
+## Testing and validation status
+
+Validated during development:
+
+- Python module compilation
+- Frontend production builds with `npm run build`
+- PDF and TXT extraction
+- DOCX extraction
+- Malformed Gemma-output fallback
+- Evidence quote and page validation
+- Repeated local model requests
+- Local FastAPI health endpoint
+- Local Gemma health endpoint
+- Offline launcher shell syntax
+
+Remaining evaluation areas include scanned PDFs requiring OCR, complete multi-pass analysis for long agreements, comprehensive source verification, network auditing and automated end-to-end tests.
+
+## Roadmap
+
+1. Multi-pass analysis for every page of long documents.
+2. BM25 or local semantic retrieval.
+3. True conversation history for chatbot follow-up questions.
+4. Better document-type-specific prompts and legal sources.
+5. Evidence navigation and quote highlighting.
+6. Obligation and deadline tracker.
+7. OCR for scanned PDFs.
+8. Source provenance and verification dates.
+9. Automated privacy and network tests.
+10. Browser extension for selected webpage text.
 
 ## Disclaimer
 
-LegalLens provides informational document triage and plain-language explanations. It does not provide legal advice, determine enforceability, establish liability, or replace a qualified lawyer. Indian legal outcomes can depend on jurisdiction, current legislation, court interpretation and facts that are not present in the uploaded document.
-
-## Project status
-
-The repository currently contains the legal-source preparation work and the planned architecture for the local analysis engine. The implementation is being developed and evaluated against the L1–L10 hackathon requirements, including local inference, evidence grounding, uncertainty handling, role-aware analysis and demonstrable privacy.
+LegalLens is an informational document-triage prototype. It does not provide legal advice, determine enforceability, establish liability or replace a qualified legal professional. Legal outcomes depend on jurisdiction, current legislation, court interpretation and facts that may not be present in the uploaded document.
